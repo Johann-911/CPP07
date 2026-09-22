@@ -8,6 +8,7 @@
 #include <climits>
 #include <utility>
 #include <cmath>
+#include "Array.tpp"
 
 template <typename T>
 class Array

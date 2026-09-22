@@ -1,19 +1,26 @@
 #include "Array.hpp"
 
-Array::Array()
+template <typename T>
+Array<T>::Array()
 {
+    _size = 0;
+    _data = NULL;
 }
 
-Array::Array(unsigned int n) : _size(n)
+template <typename T>
+Array<T>::Array(unsigned int n) : _size(n)
 {
+    _data = new T[n]();
 }
+ 
 
-
-Array::Array(const Array &copy) : _size(copy._size)
-{    
+template <typename T>
+Array<T>::Array(const Array &copy) : _size(copy._size)
+{
+    _data = new T[_size]();
 }
-
-Array &Array::operator=(const Array &copy)
+template <typename T>
+Array &Array<T>::operator=(const Array &copy)
 {
     if(this != &copy)
     {
@@ -22,12 +29,15 @@ Array &Array::operator=(const Array &copy)
     return *this;
 }
 
-Array::~Array()
+template <typename T>
+Array<T>::~Array()
 {
+    delete[] _data;
 }
 
 
-unsigned int Array::size() const
+template <typename T>
+unsigned int Array<T>::size() const
 {
     return this->_size;
 }
