@@ -8,7 +8,7 @@
 #include <climits>
 #include <utility>
 #include <cmath>
-#include "Array.tpp"
+#include <stdexcept>
 
 template <typename T>
 class Array
@@ -22,14 +22,15 @@ class Array
         Array(const Array &copy);
         Array &operator=(const Array &copy);
         ~Array();
+        
 
-
-    T& operator[](unsigned int index);
-    const T& operator[](unsigned int index) const;
-    
-    unsigned int size() const;
+        T& operator[](unsigned int index);
+        const T& operator[](unsigned int index) const;
+        
+        unsigned int size() const;
 };
+    
+#include "Array.tpp"
 
-
-
+    
 #endif
